@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class='container'>
+    <div class='row'>
+      {% for product in products %}
+            <div class='col-sm-6 col-md-4 card text-center'>
+              <a href='{% url 'product' product.id %}' class='text-dark card-link nav-link'>
+              <header class='card-title'>{{ product.title|capfirst }}</header>
+              <div class='card-body'>
+                {% if product.description %}
+                  <p class='h4'>{{ product.description }}</p>
+                {% else %}
+                  <p class='h4'>{{ product.summary }}</p>
+                {% endif %}
+              <footer class='card-footer text-muted'>
+                {{ product.price }}
+              </footer>
+              </div>
+            </a>
+            </div>
+      {% endfor %}
+        <div class='col-12'>
+          <form method='POST'>{% csrf_token %}
+            {{ form.as_p }}
+            <input type='submit' value='Save' />
+          </form>
+      </div>
+    </div>
+{% endblock %}

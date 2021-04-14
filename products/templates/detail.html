@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class='row text-center'>
+    <div class='col'>
+      <header class='card-title border bg-dark text-light'>{{ product.title|capfirst }}</header>
+      <div class='card-body border'>
+        {% if product.description %}
+          <p class='h4'>{{ product.description }}</p>
+        {% else %}
+          <p class='h4'>{{ product.summary }}</p>
+        {% endif %}
+      <footer class='card-footer text-muted'>
+        {{ product.price }}
+      </footer>
+    </div>
+  </div>
+
+{% endblock %}
