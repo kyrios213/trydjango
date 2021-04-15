@@ -20,11 +20,13 @@
         </div>
       {% endfor %}
     </div>
-        <div class='col-12 mt-4'>
-          <form method='POST'>{% csrf_token %}
-            {{ form.as_p }}
-            <input type='submit' value='Save' />
-          </form>
+    <div class='row mt-3'>
+      <div class='col'>
+        <form action='.' method='post'>{% csrf_token %}
+          {{ form.as_p }}
+          <input type='submit' value='Save' />
+        </form>
       </div>
     </div>
+  </div>
 {% endblock %}
