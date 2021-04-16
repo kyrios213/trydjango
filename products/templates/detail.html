@@ -1,19 +1,21 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <div class='row text-center'>
-    <div class='col'>
-      <header class='card-title border bg-dark text-light'>{{ product.title|capfirst }}</header>
-      <div class='card-body border'>
-        {% if product.description %}
-          <p class='h4'>{{ product.description }}</p>
-        {% else %}
-          <p class='h4'>{{ product.summary }}</p>
-        {% endif %}
-      <footer class='card-footer text-muted'>
-        {{ product.price }}
-      </footer>
+  <div class="container">
+    <div class='row text-center'>
+      <div class='col-lg-6'>
+        <header class='card-title border bg-dark text-light'>{{ product.title|capfirst }}</header>
+        <div class='card-body border'>
+          {% if product.description %}
+            <p class='h4'>{{ product.description }}</p>
+          {% else %}
+            <p class='h4'>{{ product.summary }}</p>
+          {% endif %}
+          <a href="{% url 'delete' product.id %}" class='btn btn-secondary'>Delete</a>
+        <footer class='card-footer text-muted'>
+          {{ product.price }}
+        </footer>
+      </div>
     </div>
   </div>
-
 {% endblock %}

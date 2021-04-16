@@ -7,10 +7,10 @@
     crossorigin="anonymous">
 </head>
 <body>
-  <div class='row'>
-    <div class='col-12 border border-secondary bg-secondary text-light nav nav-bar'>
+  <div class='row sticky-top'>
+    <div class='col-12 border border-secondary bg-secondary text-light nav'>
       <p class='h4'><a href='{% url 'home' %}' class='text-info nav-link'>Home</a></p>
-      <p class='h4 align-self-center'><a class='text-info nav-link' href="{% url 'contact'%}">Contact</a>
+      <p class='h4 align-self-center'><a class='text-info nav-link' href="{% url 'contact'%}">Contact</a></p>
     </div>
   </div>
   {% block content%}

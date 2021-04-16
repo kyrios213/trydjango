@@ -6,7 +6,7 @@ from .forms import ProductForm
 
 # Create your views here.
 def home_view(request):
-    products = Product.objects.filter(featured=True).all()
+    products = Product.objects.filter(featured=True).order_by("id").all()
     form = ProductForm(request.POST or None)
     if form.is_valid():
         cleaned_form = form.cleaned_data
